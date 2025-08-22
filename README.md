@@ -18,7 +18,9 @@ Implement message ingestion, validation, and processing pipelines.
 Provide audit logging, error handling, and reporting APIs.
 Deploy via Docker & Kubernetes for cloud-native operation.
 
- System Design
+ System Architectural Design
+
+
 <img width="660" height="895" alt="Screenshot 2025-08-22 at 09 01 26" src="https://github.com/user-attachments/assets/ff49c439-79f3-4f0e-9a25-a9523d734a24" />
 
 
@@ -67,7 +69,7 @@ docker-compose.yml for local setup (Postgres + Kafka + Redis).
 Kubernetes manifests for scaling in cloud environments.
  Quick Start
 Clone the Repo
-git clone https://github.com/your-username/iso20022-processor.git
+git clone the repository
 cd iso20022-processor
 Run with Docker
 docker-compose up --build
