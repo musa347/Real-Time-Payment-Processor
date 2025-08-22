@@ -19,21 +19,21 @@ Provide audit logging, error handling, and reporting APIs.
 Deploy via Docker & Kubernetes for cloud-native operation.
 
  System Design
-```mermaid
 flowchart TD
     A[Payment Initiator] -->|ISO 20022 pacs.008| B[API Gateway]
     B --> C[Message Parser & Validator]
     C -->|Valid| D[Payment Orchestrator]
     C -->|Invalid| E[Error Handler & DLQ]
-
     D --> F[Fraud Detection Engine]
     F --> G[Ledger Service]
     G --> H[Settlement Service]
     H --> I[ISO 20022 Response Generator (pacs.002)]
     I --> J[Return Response to Initiator]
-
     G --> K[Reporting & Audit API]
     K --> L[Data Lake / BI Tools]
+
+    classDef service fill:#d1e7ff,stroke:#0052cc,stroke-width:2px;
+    class A,B,C,D,E,F,G,H,I,J,K,L service;
 
 Components
 API Gateway → Exposes REST/GraphQL endpoints for payment initiation.
