@@ -1,20 +1,25 @@
 ISO 20022 Real-Time Payment Processor (Java 23)
  Problem Statement
 The global payment industry is rapidly moving from legacy SWIFT MT messages to ISO 20022 XML-based messages, which provide richer and more structured payment data.
+
 Financial institutions, fintechs, and payment processors need to handle:
 Ingestion of ISO 20022 messages (e.g., pacs.008, pacs.002, camt.053).
 Validation & transformation into internal formats.
 Real-time processing with low latency and high reliability.
 Regulatory compliance and secure settlement.
 Scalability for peak transaction volumes.
+
 This project demonstrates a Java 23-powered backend system for processing ISO 20022 payments in real-time, showcasing modern backend engineering principles.
+
  Objectives
 Build a scalable Java 23 backend that supports ISO 20022 payment flows.
 Use Spring Boot 3.3+, Reactive Streams, and Virtual Threads (Project Loom) for concurrency.
 Implement message ingestion, validation, and processing pipelines.
 Provide audit logging, error handling, and reporting APIs.
 Deploy via Docker & Kubernetes for cloud-native operation.
+
  System Design
+```mermaid
 flowchart TD
     A[Payment Initiator] -->|ISO 20022 pacs.008| B[API Gateway]
     B --> C[Message Parser & Validator]
@@ -29,6 +34,7 @@ flowchart TD
 
     G --> K[Reporting & Audit API]
     K --> L[Data Lake / BI Tools]
+
 Components
 API Gateway → Exposes REST/GraphQL endpoints for payment initiation.
 Message Parser & Validator → Parses ISO 20022 XML, validates against schemas (.xsd).
