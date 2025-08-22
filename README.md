@@ -92,7 +92,7 @@ Quick Start
 
 Clone the Repo:
 
-git clone https://github.com/your-repo/iso20022-processor.git
+git clone [https://github.com/your-repo/iso20022-processor.git](https://github.com/musa347/Real-Time-Payment-Processor)
 cd iso20022-processor
 
 
