@@ -31,39 +31,8 @@ Deploy via Docker & Kubernetes for cloud-native operation.
 
 System Architectural Design
 
-Components:
+<img width="660" height="895" alt="Screenshot 2025-08-22 at 09 01 26" src="https://github.com/user-attachments/assets/86714cb5-e1ec-4f79-80f7-123d4020c27d" />
 
-API Gateway
-
-Exposes REST/GraphQL endpoints for payment initiation.
-
-Message Parser & Validator
-
-Parses ISO 20022 XML and validates against schemas (.xsd).
-
-Payment Orchestrator
-
-Routes messages and applies business rules.
-
-Fraud Detection Engine
-
-Real-time anomaly detection using rule-based and ML models.
-
-Ledger Service
-
-Double-entry accounting system for balance updates.
-
-Settlement Service
-
-Handles clearing and settlement flows.
-
-Response Generator
-
-Generates ISO 20022 compliant acknowledgments.
-
-Reporting API
-
-Exposes transaction data for compliance and monitoring.
 
 Implementation Process
 Tech Stack
