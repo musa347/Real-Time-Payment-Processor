@@ -4,13 +4,15 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 /**
- * Domain-level representation of a payment request.
- * Extracted from pacs.008 XML using JAXB.
+ * Domain DTO for payment request.
+ * Immutable using Java 23 Records.
  */
 public record PaymentRequest(
-        UUID transactionId,
+        String transactionId,
         String debtorAccount,
         String creditorAccount,
-        BigDecimal amount,
-        String currency
+        String debtorBic,
+        String creditorBic,
+        double amount,
+        String xmlPayload
 ) {}
