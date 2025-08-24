@@ -35,4 +35,17 @@ public class GlobalExceptionHandler {
             )
     );
   }
+  @ExceptionHandler(BusinessRuleViolationException.class)
+  public ResponseEntity<Map<String, Object>> handleBusinessRuleViolation(BusinessRuleViolationException ex) {
+    return ResponseEntity.badRequest().body(
+            Map.of(
+                    "timestamp", Instant.now().toString(),
+                    "status", HttpStatus.BAD_REQUEST.value(),
+                    "error", "Business Rule Violation",
+                    "errorCode", ex.getErrorCode(),
+                    "message", ex.getMessage()
+            )
+    );
+  }
+
 }
