@@ -2,7 +2,7 @@ package com.acme.payments.processing;
 
 import com.acme.payments.validation.BusinessValidator;
 import com.acme.payments.validation.Iso20022XsdValidator;
-import com.acme.payments.domain.PaymentRequest;
+import com.acme.payments.domain.dto.PaymentRequest;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
@@ -15,14 +15,14 @@ public class PaymentOrchestrator {
 
     private final Iso20022XsdValidator xsdValidator;
     private final BusinessValidator businessValidator;
-    private final PaymentProcessor paymentProcessor;
+    private final PaymentService paymentService;
 
     public PaymentOrchestrator(Iso20022XsdValidator xsdValidator,
                                BusinessValidator businessValidator,
-                               PaymentProcessor paymentProcessor) {
+                               PaymentService paymentService) {
         this.xsdValidator = xsdValidator;
         this.businessValidator = businessValidator;
-        this.paymentProcessor = paymentProcessor;
+        this.paymentService = paymentService;
     }
 
     public Mono<String> processPayment(PaymentRequest request) {
@@ -37,7 +37,7 @@ public class PaymentOrchestrator {
                     request.creditorBic(),
                     request.amount()
             );
-            return paymentProcessor.process(request);
+            return paymentService.executePayment(request);
         });
     }
 }
